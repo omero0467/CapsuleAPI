@@ -12,4 +12,14 @@ body {
   font-family: "arial";
 }
 
+.gridContainer {
+  display: grid;
+  grid-auto-flow: column;
+  text-align: right;
+}
+
+.titles {
+  background-color: blue;
+}
+
 /*# sourceMappingURL=main.css.map */
