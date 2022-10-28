@@ -1,7 +1,7 @@
 import omer from "./app.js";
 
 const title = document.querySelector('.titles')
-const mainContainer = document.querySelector('.main-container')
+// const mainContainer = document.querySelector('.main-container')
 const firstNameTitle = document.querySelector('.firstNameTitle')
 const lastNameTitle = document.querySelector('.lastNameTitle')
 const userIdTitle = document.querySelector('.userIdTitle')
@@ -15,32 +15,40 @@ const displayGrid = async()=>{
     const users = await omer.TESTfunc()
     console.log(users);
     for (let i = 0; i < users.length; i++) {
-        const{id,firstName,lastName,age,city,capsule,gender} =users[i]
+        const{id,firstName,lastName,age,city,capsule,gender} = users[i]
+
         const first = document.createElement('div');
         first.classList.add('name')
         first.innerText = firstName
+
         const last = document.createElement('div');
         last.classList.add('lastName')
         last.innerText = lastName
+
         const userAge = document.createElement('div');
         userAge.classList.add('age')
         userAge.innerText = age
+
         const userId = document.createElement('div');
         userId.classList.add('userId')
         userId.innerText = id
+
         const userCity = document.createElement('div');
         userCity.classList.add('city')
         userCity.innerText = city
+
         const userGender = document.createElement('div');
+        userGender.innerText = gender
         userGender.classList.add('gender');
+        
         firstNameTitle.append(first)
         lastNameTitle.append(last)
-        userIdTitle.append(userAge)
-        genderTitle.append(userId)
+        userIdTitle.append(userId)
+        genderTitle.append(userGender)
         cityTitle.append(userCity)
-        ageTitle.append(userCity)
-
-
+        ageTitle.append(userAge)
+        
+        
     }
 
     

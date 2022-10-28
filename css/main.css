@@ -20,6 +20,7 @@ body {
 
 .titles {
   background-color: blue;
+  grid-column-start: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
