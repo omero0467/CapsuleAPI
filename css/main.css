@@ -12,6 +12,8 @@
   padding: 0 10px;
   background-color: rgb(0, 69, 242);
   color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 body {
@@ -21,14 +23,23 @@ body li {
   list-style: none;
 }
 
+.headerContainer {
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
 .gridContainer {
   display: grid;
   text-align: left;
 }
 .gridContainer ul {
   display: grid;
+  padding: 0 20px;
 }
 .gridContainer ul li {
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -50,6 +61,15 @@ body li {
 .titles {
   background-color: blue;
   grid-column-start: 0;
+}
+
+.searchparameter {
+  padding: 20px;
+  border: none;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

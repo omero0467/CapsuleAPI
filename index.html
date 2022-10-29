@@ -7,11 +7,24 @@
     <title>Document</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <!-- <script src="app.js" type="module"></script> -->
-    <script src="dataDisplay.js" type="module"></script>
+    <script src="dataDisplay.js" type="module" defer></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-        <header><h1>Welcome</h1></header>
+        <div class="headerContainer">
+            <h1>Welcome To Capsule Search Pro Max100</h1>
+            <!-- <h2>made in Bangaladesh...</h2> -->
+            <div><input id="search" type="text" class="searchbox"> <select name="searchparameter" id="searchparameter">
+                <option value="everything">Everything</option>
+                <option value="id">Id</option>
+                <option value="capsule">Capsule</option>
+                <option value="lastName">Last Name</option>
+                <option value="firstName">First Name</option>
+                <option value="gender">Gender</option>
+                <option value="city">City</option>
+                <option value="age">Age</option>
+            </select></div>
+        </div>
         <div class="gridContainer">
             <!-- <div class="firstNameTitle"></div>
             <div class="lastNameTitle"></div>

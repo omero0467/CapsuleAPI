@@ -1,5 +1,5 @@
-import omer from "./app.js";
-
+import mainApp from "./app.js";
+import sorter from "./sortingAndEditing.js"
 const title = document.querySelector('.titles')
 // const mainContainer = document.querySelector('.main-container')
 const firstNameTitle = document.querySelector('.firstNameTitle')
@@ -11,12 +11,13 @@ const ageTitle = document.querySelector('.ageTitle')
 const gridContainer = document.querySelector('.gridContainer')
 const usersList =document.createElement('ul')
 gridContainer.append(usersList)
+
 const displayGrid = async()=>{
     
-    const users = await omer.TESTfunc()
-    console.log(users);
+ try{   const users = await mainApp.TESTfunc()
+    const criterias = document.createElement('div')
     for (let i = 0; i < users.length; i++) {
-        const{id,firstName,lastName,age,city,capsule,gender} = users[i]
+        const{id,firstName,lastName,age,city,capsule,gender,hobby} = users[i]
         const userEl = document.createElement('li')
         createAndAppend2(firstName,userEl,'firstName')
         createAndAppend2(lastName,userEl,'lastName')
@@ -24,52 +25,84 @@ const displayGrid = async()=>{
         createAndAppend2(city,userEl,'city')
         createAndAppend2(capsule,userEl,'capsule')
         createAndAppend2(gender,userEl,'gender')
-        createAndAppend2('Edit',userEl,'btn')
-        createAndAppend2('Delete',userEl,'btn')
+        createAndAppend2(hobby,userEl,'hobby')
+        createAndAppend2('Edit',userEl,'btn','edit')
+        createAndAppend2('Delete',userEl,'btn','delete')
         usersList.appendChild(userEl)
     }
-
+    const deleteBtns = document.querySelectorAll('.delete')
+    deleteBtns.forEach((k)=>{
+        k.addEventListener('click',(e)=>{
+            //    k.parentElement.classList.toggle('hidden')
+            k.parentElement.style.display= 'none'
+            console.log(k.parentElement)
+        })
+        
+    })} catch (err){ console.log(err)}
+    // console.log(editBTNS[i])
+    
 }
 displayGrid()
 
-function createAndAppend2(property,appendingParent,className) {
+function createAndAppend2(property,appendingParent,className,secondClass) {
     let key = document.createElement('div');
     key.classList.add(`${className}`);
+    if (secondClass!==undefined) {
+        key.classList.add(`${secondClass}`);
+    }
     key.innerText = `${property}`;
     appendingParent.appendChild(key)
 }
+// sorter.editText()
 
-// -----OptionB
-// function createAndAppend(firstName, lastName, age, id, city, gender) {
-//     const first = document.createElement('div');
-//     first.classList.add('name');
-//     first.innerText = firstName;
 
-//     const last = document.createElement('div');
-//     last.classList.add('lastName');
-//     last.innerText = lastName;
-
-//     const userAge = document.createElement('div');
-//     userAge.classList.add('age');
-//     userAge.innerText = age;
-
-//     const userId = document.createElement('div');
-//     userId.classList.add('userId');
-//     userId.innerText = id;
-
-//     const userCity = document.createElement('div');
-//     userCity.classList.add('city');
-//     userCity.innerText = city;
-
-//     const userGender = document.createElement('div');
-//     userGender.innerText = gender;
-//     userGender.classList.add('gender');
-
-//     firstNameTitle.append(first);
-//     lastNameTitle.append(last);
-//     userIdTitle.append(userId);
-//     genderTitle.append(userGender);
-//     cityTitle.append(userCity);
-//     ageTitle.append(userAge);
-// }
-
+// async function editText() {
+    //     await displayGrid()
+    //     const liItems = document.querySelectorAll('li') 
+    //     let clicked= false
+    //    const myList = [...liItems]
+    //     const editBtns = document.querySelectorAll('.edit')
+    //     const clickSetter = function (e) {
+        //         clicked = true;
+        //         const SaveBtn = document.createElement('div')
+        //         SaveBtn.classList.add('save','btn')
+        //         SaveBtn.innerText='Save'
+        
+        //         let parent =''
+        //         if (clicked){
+            //             liItems.forEach(li=>{li.childNodes.forEach(div=>{
+                //                 parent = li
+                //                 div.addEventListener('click',edit(e, SaveBtn,parent))
+                //             })});
+                //             SaveBtn.addEventListener('click',newFunction(SaveBtn,parent))
+                //         }
+                //     };
+                //     editBtns.forEach(editButton=>{
+                    //         editButton.addEventListener('click', clickSetter)
+                    
+                    //     })
+                    //     console.log(clicked)
+                    //     let editbtn =null
+                    //     function newFunction(SaveBtn, li) {
+                        //         return (e) => {
+                            //             e.target.setAttribute('contenteditable', 'false');
+                            //             e.target.parentElement.setAttribute('contenteditable', 'false');
+                            //             editbtn = document.createElement('div');
+                            //             editbtn.classList.add('btn', 'edit');
+                            //             editbtn.innerText = 'Edit';
+                            //             editbtn.addEventListener('click', clickSetter);
+                            //             e.target.replaceWith(editbtn);
+                            //             clicked = false;
+                            //         };
+                            //     }
+                            
+                            //     function edit(e, SaveBtn,li) {
+                                //         // li.replaceChild(e.target,SaveBtn)
+                                //         li.setAttribute('contenteditable', 'true');
+                                //         e.target.setAttribute('contenteditable', 'false');
+                                //         e.target.replaceWith(SaveBtn);
+                                //     }
+                                //     // console.log(userObj)
+                                // }
+                                export default {displayGrid}
+                                sorter.editText()
