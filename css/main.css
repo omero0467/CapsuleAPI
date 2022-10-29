@@ -8,14 +8,43 @@
   padding: 0;
 }
 
+.btn {
+  padding: 0 10px;
+  background-color: rgb(0, 69, 242);
+  color: white;
+}
+
 body {
   font-family: "arial";
+}
+body li {
+  list-style: none;
 }
 
 .gridContainer {
   display: grid;
-  grid-auto-flow: column;
-  text-align: right;
+  text-align: left;
+}
+.gridContainer ul {
+  display: grid;
+}
+.gridContainer ul li {
+  display: flex;
+  justify-content: space-between;
+}
+.gridContainer ul li > div {
+  flex-basis: 16.666666%;
+}
+.gridContainer ul li:nth-child(odd) {
+  background-color: violet;
+}
+.gridContainer ul li:nth-child(even) {
+  background-color: lavender;
+}
+.gridContainer ul li .btn {
+  flex-basis: content;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .titles {
